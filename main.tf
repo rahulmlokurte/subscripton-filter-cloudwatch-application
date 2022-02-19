@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    aws      = {
+    aws = {
       source  = "hashicorp/aws"
       version = "~> 3.27"
     }
@@ -8,7 +8,7 @@ terraform {
       source  = "hashicorp/template"
       version = "~> 2.2"
     }
-    archive  = {
+    archive = {
       source  = "hashicorp/archive"
       version = "~> 2.1"
     }
@@ -23,5 +23,5 @@ provider "aws" {
 
 module "lambda" {
   source = "./modules/lambda"
-    tags   = var.tags
+  tags   = var.tags
 }
