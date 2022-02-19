@@ -5,6 +5,7 @@ module "odd_parity_collector_function_lambda" {
   description   = "Collects logs sent by subscription filter for odd values"
   handler       = "index.handler"
   runtime       = "nodejs14.x"
+  lambda_role   = var.lambda_role_arn
   source_path   = "${path.module}/resources/odd-parity-collector-function"
   tags          = var.tags
 }

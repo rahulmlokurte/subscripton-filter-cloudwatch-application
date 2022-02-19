@@ -5,6 +5,7 @@ module "parity_function_lambda" {
   description   = "Parity Function check whether number is even or odd"
   handler       = "index.handler"
   runtime       = "nodejs14.x"
+  lambda_role   = var.lambda_role_arn
   source_path   = "${path.module}/resources/parity-function"
   tags          = var.tags
 }

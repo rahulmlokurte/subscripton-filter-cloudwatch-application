@@ -22,8 +22,9 @@ provider "aws" {
 }
 
 module "lambda" {
-  source = "./modules/lambda"
-  tags   = var.tags
+  source          = "./modules/lambda"
+  tags            = var.tags
+  lambda_role_arn = module.roles.lambda_role_arn
 }
 
 module "subscription_filter" {
@@ -32,4 +33,8 @@ module "subscription_filter" {
   parity_function_aws_cloudwatch_log_group_arn  = module.lambda.parity_function_aws_cloudwatch_log_group_arn
   odd_parity_collector_function_lambda_arn      = module.lambda.odd_parity_collector_function_lambda_arn
   parity_function_aws_cloudwatch_log_group_name = module.lambda.parity_function_aws_cloudwatch_log_group_name
+}
+
+module "roles" {
+  source = "./modules/roles"
 }
