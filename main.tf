@@ -25,3 +25,9 @@ module "lambda" {
   source = "./modules/lambda"
   tags   = var.tags
 }
+
+module "subscription_filter" {
+  source                                       = "./modules/subscription-filter"
+  odd_parity_collector_function_lambda_name    = module.lambda.odd_parity_collector_function_lambda_name
+  parity_function_aws_cloudwatch_log_group_arn = module.lambda.parity_function_aws_cloudwatch_log_group_arn
+}
