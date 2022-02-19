@@ -27,7 +27,9 @@ module "lambda" {
 }
 
 module "subscription_filter" {
-  source                                       = "./modules/subscription-filter"
-  odd_parity_collector_function_lambda_name    = module.lambda.odd_parity_collector_function_lambda_name
-  parity_function_aws_cloudwatch_log_group_arn = module.lambda.parity_function_aws_cloudwatch_log_group_arn
+  source                                        = "./modules/subscription-filter"
+  odd_parity_collector_function_lambda_name     = module.lambda.odd_parity_collector_function_lambda_name
+  parity_function_aws_cloudwatch_log_group_arn  = module.lambda.parity_function_aws_cloudwatch_log_group_arn
+  odd_parity_collector_function_lambda_arn      = module.lambda.odd_parity_collector_function_lambda_arn
+  parity_function_aws_cloudwatch_log_group_name = module.lambda.parity_function_aws_cloudwatch_log_group_name
 }
